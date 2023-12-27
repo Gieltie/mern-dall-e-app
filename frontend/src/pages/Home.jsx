@@ -18,7 +18,7 @@ const Home = () => {
     <section className='max-w-7x1 mx-auto'>
       <div>
         <h1 className='font-extrabold text-[#101917] text-[32px]'>La Vitrine</h1>
-        <p className='mt-2 text-[#101917] text-[16px] max-w-[500px]'>parcourez une collection d'images imaginatives et visuellement époustouflantes générées par DALL-E AI</p>
+        <p className='mt-2 text-[#101917] text-[16px] max-w-[500px]'>Parcourez une collection d'images imaginatives et visuellement époustouflantes générées par DALL-E IA</p>
       </div>
       <div className='mt-16'>
         <FormField />
@@ -35,7 +35,7 @@ const Home = () => {
                 résultats pour <span>{searchText}</span>
               </h2>
             )}
-            <div className='grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1  gap-3'>
+            <div className='grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3'>
               {searchText ? (
                 <RenderCards 
                   data={[]}
