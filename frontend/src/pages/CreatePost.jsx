@@ -7,18 +7,16 @@ import { FormField, Loader } from '../components'
 
 const CreatePost = () => {
   const navigate = useNavigate()
+
   const [form, setForm] = useState({
     name: '',
     prompt: '',
     photo: '',
   })
+
   const [generatingImg, setGeneratingImg] = useState(false)
   const [loading, setLoading] = useState(false)
-
-  const handleSubmit = () => {
-
-  }
-
+ 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
@@ -27,7 +25,7 @@ const CreatePost = () => {
     const randomPrompt = getRandomPrompt(form.prompt)
     setForm({ ...form, prompt: randomPrompt })
   }
-
+  
   const generateImage = async () => {
     if(form.prompt) {
       try {
@@ -39,9 +37,9 @@ const CreatePost = () => {
           },
           body: JSON.stringify({ prompt: form.prompt })
         })
-
+        
         const data = await response.json()
-
+        
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}`})
       } catch (error) {
         alert(error)
@@ -52,7 +50,34 @@ const CreatePost = () => {
       alert('Veuillez entrer un prompt')
     }
   }
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
+    if(form.prompt && form.photo) {
+      setLoading(true)
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/post', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ ...form })
+        })
+
+        await response.json()
+        alert('Votre image a bien ete envoye')
+        navigate('/')
+      } catch (error) {
+        alert(error)
+      } finally {
+        setLoading(false)
+      }
+    } else {
+      alert('Veuillez generer une image')
+    }
+  }
+  
   return (
     <section className='max-w-7x1 mx-auto'>
        <div>
@@ -62,18 +87,18 @@ const CreatePost = () => {
       <form className='mt-16 max-w-3x1' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-5'>
           <FormField
-            labelName=""
+            labelName="Ton nom"
             type="text"
             name="name"
-            placeHolder="Jean Dupont"
+            placeholder="Jean Dupont"
             value={form.name}
             handleChange={handleChange}
           />
           <FormField
-            labelName="Prompt"
+            labelName="Demande"
             type="text"
             name="prompt"
-            placeHolder="Un chien qui joue au football"
+            placeholder="Un chien qui joue au football"
             value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe
