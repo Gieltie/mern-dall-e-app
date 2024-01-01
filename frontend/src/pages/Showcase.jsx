@@ -9,7 +9,7 @@ const RenderCards = ({ data, title }) => {
   return <h2 className='mt-5 font-bold text-[#101917] text-x1 uppercase'>{title}</h2>
 }
 
-const Home = () => {
+const Showcase = () => {
   const [loading, setLoading] = useState(false)  
   const [allPosts, setAllPosts] = useState(null)
 
@@ -58,17 +58,16 @@ const Home = () => {
 
   return (
     <section className='max-w-7x1 mx-auto'>
-      <div>
+      <div className='border-b-8'>
         <h1 className='font-extrabold text-[#101917] text-[32px]'>La Vitrine</h1>
-        <p className='mt-2 text-[#101917] text-[16px] max-w-[500px]'>Parcourez une collection d'images imaginatives et visuellement époustouflantes générées par DALL-E IA</p>
+        <p className='mt-2 text-[#101917] text-[16px] max-w-[500px]'>Trouvez ici toutes les images réalisées par chacun.</p>
       </div>
 
-      <div className='mt-16'>
+      <div className='mt-10'>
         <FormField
-          labelName="Recherchez un post"
+          labelName="Recherchez une image par nom"
           type="text"
           name="text"
-          placeholder="Recherchez quelque chose..."
           value={searchText}
           handleChange={handleSearchChange}
         />
@@ -106,4 +105,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Showcase

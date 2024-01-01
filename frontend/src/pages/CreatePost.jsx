@@ -67,7 +67,7 @@ const CreatePost = () => {
 
         await response.json()
         alert('Votre image a bien ete envoye')
-        navigate('/')
+        navigate('/showcase')
       } catch (error) {
         alert(error)
       } finally {
@@ -80,14 +80,14 @@ const CreatePost = () => {
   
   return (
     <section className='max-w-7x1 mx-auto'>
-       <div>
-        <h1 className='font-extrabold text-[#101917] text-[32px]'>Creer</h1>
-        <p className='mt-2 text-[#101917] text-[16px] max-w-[500px]'>Créez des images imaginatives et visuellement époustouflantes grâce à DALL-E IA et partagez-les avec la communauté</p>
+       <div className='border-b-8'>
+        <h1 className='font-extrabold text-[#101917] text-[32px]'>Cree ton image</h1>
+        <p className='mt-2 text-[#101917] text-[16px] max-w-[550px]'>DALL·E 3 te permet de transformer facilement tes idées en images.</p>
       </div>
-      <form className='mt-16 max-w-3x1' onSubmit={handleSubmit}>
+      <form className='mt-10 max-w-3x1' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-5'>
           <FormField
-            labelName="Ton nom"
+            labelName="Nom"
             type="text"
             name="name"
             placeholder="Jean Dupont"
@@ -95,54 +95,60 @@ const CreatePost = () => {
             handleChange={handleChange}
           />
           <FormField
-            labelName="Demande"
+            labelName="Ton idée ou"
             type="text"
             name="prompt"
-            placeholder="Un chien qui joue au football"
+            placeholder="Écris ton idée ici"
             value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
           />
         </div>
-        <div className='relative bg-green-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center mt-5 shadow-xl'>
-          {form.photo ? (
-            <img 
-              src={form.photo} 
-              alt={form.prompt} 
-              className='object-contain w-full h-full'
-            />
-          ) : (
-            <img 
-              src={preview} 
-              alt='preview' 
-              className='w-9/12 h-9/12 object-contain opacity-40' 
-          />
-          )}
-          {generatingImg && (
-            <div className='absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)]'>
-              <Loader />
-            </div>
-          )}
-        </div>
+
         <div className='mt-5 flex gap-5'>
           <button
             type='button'
             onClick={generateImage}
-            className='text-white bg-[#5F9B8E] font-medium rounded-md text-sm px-5 py-2.5 text-center w-full shadow-md'
+            className='text-white bg-[#5F9B8E] hover:bg-[#6BBCAB] font-medium rounded-md text-sm px-5 py-2.5 text-center w-full shadow-md transform transition-all'
           >
-            {generatingImg ? 'Generation...' : 'Generer'}
+            {generatingImg ? "Creation de l'image..." : "Generer l'image"}
           </button>
         </div>
-        <div className='mt-10'>
-          <p className='mt-2 text-[#666e75] text-[14px]'>Vous pouvez partager les images une fois generer</p>
-          <button 
-            type='submit'
-            className='mt-3 bg-[#DCEAE7] text-[#666e75] font-medium rounded-md text-sm w-full px-5 py-2.5 text-center shadow-md'
-          >
-            {loading ? 'Envoi...' : 'Envoyer au monde'}
-          </button>  
+
+        <div className='flex flex-col items-center mt-5'>
+          <div className='relative bg-green-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center mt-5 shadow-xl'>
+            {form.photo ? (
+              <img 
+                src={form.photo} 
+                alt={form.prompt} 
+                className='object-contain w-full h-full'
+              />
+            ) : (
+              <img 
+                src={preview} 
+                alt='preview' 
+                className='w-9/12 h-9/12 object-contain opacity-40' 
+            />
+            )}
+            {generatingImg && (
+              <div className='absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)]'>
+                <Loader />
+              </div>
+            )}
+          </div>
+          
+          <div className='mt-10 text-center'>
+            <p className='mt-2 text-[14px]'>Placer l'image dans la vitrine</p>
+            <button 
+              type='submit'
+              className='mt-3 bg-[#DCEAE7] hover:bg-[#666e75] text-[#666e75] hover:text-[#DCEAE7] font-medium rounded-md text-sm px-5 py-2.5 text-center shadow-md transform transition-all'
+            >
+              {loading ? 'Envoi...' : 'Envoyer'}
+            </button>  
+          </div>
         </div>
+        
       </form>
     </section>
   )

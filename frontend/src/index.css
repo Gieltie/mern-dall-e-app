@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+body {
+    max-width: 768px;
     font-family: 'Inter', sans-serif;
+    margin: 1em auto;
+    border: #D1D5DB 1px solid;
+    border-radius: 0.5em;
 }
 
 @media screen and (min-width: 480px) {

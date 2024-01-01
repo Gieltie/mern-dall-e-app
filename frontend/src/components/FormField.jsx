@@ -14,7 +14,7 @@ const FormField = ({ labelName, type, name, placeholder, value, handleChange, is
           <button 
             type='button' 
             onClick={handleSurpriseMe} 
-            className='font-semibold text-xs py-1 px-2 rounded-[5px] bg-[#5F9B8E] text-white'
+            className='font-semibold text-xs px-2 py-1.5 rounded-[5px] bg-[#5F9B8E] hover:bg-[#6BBCAB] text-white transform transition-all'
           >
             Surprend moi
           </button>
@@ -28,7 +28,7 @@ const FormField = ({ labelName, type, name, placeholder, value, handleChange, is
         value={value}
         onChange={handleChange}
         required
-        className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#5F9B8F] focus:border-[#5F9B8E] outline-none block w-full p-3 '
+        className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#5F9B8F] focus:border-[#5F9B8E] outline-none block w-full p-3'
       />
     </div>
   )

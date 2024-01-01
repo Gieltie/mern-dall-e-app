@@ -1,4 +1,4 @@
-import Home from "./Home";
+import Showcase from "./Showcase";
 import CreatePost from "./CreatePost";
 
-export { Home, CreatePost };
+export { Showcase, CreatePost };
