@@ -8,6 +8,7 @@ body {
     margin: 1em auto;
     border: #D1D5DB 1px solid;
     border-radius: 0.5em;
+    box-shadow: black 0px 0px 10px;
 }
 
 @media screen and (min-width: 480px) {

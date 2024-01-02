@@ -19,8 +19,8 @@ const App = () => {
         </Routes>
       </main>
       <footer className='w-full flex justify-center items-center bg-[#DCEAE7] sm:px-8 px-4 py-4 border-t border-b[#e6ebf4]'>
-          <p className='mr-5'>Made with</p> 
-          <img src={logo} alt='logo' className='w-28 object-contain' />
+          <p className='text-sm'>Fait avec</p> 
+          <img src={logo} alt='logo' className='ml-1 w-20 object-contain' />
       </footer>
     </BrowserRouter>
   )
