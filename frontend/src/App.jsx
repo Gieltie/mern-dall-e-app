@@ -1,14 +1,14 @@
 import React from 'react'
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
-import { logo } from './assets'
+import { logo, gael } from './assets'
 import { CreatePost, Showcase } from './pages'
 
 const App = () => {
   return (
     <BrowserRouter>
-      <header className='w-full flex justify-between items-center bg-white sm:px-8 px-4 py-4 border-b border-b[#e6ebf4]'>
+      <header className='w-full flex justify-between items-center bg-[#DCEAE7] sm:px-8 px-4 py-4 border-b border-b[#e6ebf4]'>
         <Link to='/'>
-          <img src={logo} alt='logo' className='w-28 object-contain' />
+          <img src={gael} alt='logo' className='w-40 object-contain' />
         </Link>
         <Link to='/showcase' className='font-inter font-medium bg-[#5F9B8E] hover:bg-[#6BBCAB] text-white px-4 py-2 rounded-md transform transition-all'>Vitrine</Link>
       </header>
@@ -18,6 +18,10 @@ const App = () => {
           <Route path='/showcase' element={<Showcase />} />
         </Routes>
       </main>
+      <footer className='w-full flex justify-center items-center bg-[#DCEAE7] sm:px-8 px-4 py-4 border-t border-b[#e6ebf4]'>
+          <p className='mr-5'>Made with</p> 
+          <img src={logo} alt='logo' className='w-28 object-contain' />
+      </footer>
     </BrowserRouter>
   )
 }

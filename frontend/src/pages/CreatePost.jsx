@@ -142,7 +142,7 @@ const CreatePost = () => {
             <p className='mt-2 text-[14px]'>Placer l'image dans la vitrine</p>
             <button 
               type='submit'
-              className='mt-3 bg-[#DCEAE7] hover:bg-[#666e75] text-[#666e75] hover:text-[#DCEAE7] font-medium rounded-md text-sm px-5 py-2.5 text-center shadow-md transform transition-all'
+              className='mt-3 bg-[#5F9B8E] hover:bg-[#6BBCAB] text-white hover:text-[#DCEAE7] font-medium rounded-md text-sm px-5 py-2.5 text-center shadow-md transform transition-all'
             >
               {loading ? 'Envoi...' : 'Envoyer'}
             </button>  
